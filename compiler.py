@@ -56,16 +56,17 @@ color_schemes =\
 
 exit_string =\
 """
-function shellforme_exit {
+function shellforme_exit {{
     if [[ $? == 0 ]]; then
         echo '$(tput setaf {0}){1}'
     else
         echo '$(tput setaf {2}){3}'
     fi
     echo '$(tput sgr0)'
-}
+}}
 
 """
+# Double {{ }} to escape python formatting!!!
 
 class Error(Exception):
     def __init__(self, msg):
