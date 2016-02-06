@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShellForMe</title>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!--Import materialize.css-->
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <link rel="stylesheet" href="resize.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -25,114 +19,241 @@
   </div>
 </nav>
 <body>
-  <section class="main hbox space-between">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="resize.css" />
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <span class="black-text">
-        <center>
-          Terminal Preview (To be implemented)
-        </center>
-      </span>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><span color="green">ShellFor.Me</span></a>
+      </div>
     </div>
-  </section>
+  </nav>
 
-  <div class="row">
-    <div class="col s6">
-      <ul class="tabs">
-        <li class="tab col"><a href="#basictab">Basic</a></li>
-        <li class="tab col"><a href="#gittab">Git</a></li>
-        <li class="tab col"><a href="#chroottab">Chroot</a></li>
-        <li class="tab col"><a href="#moretab">More</a></li>
-      </ul>
-      <div id="basictab" class="col s6">
-        <ul class="collection">
-          <li class="collection-item">
-            Username <div class="switch">
-              <label>
-                Disabled
-                <input type="checkbox"><span class="lever"></span>
-                Enabled
-              </label>
+  <hr><!-- Terminal Preview -->
+
+  <div class="termbox">
+    <div class="container">
+      <div class="term-elem">
+      <!-- Terminal preview goes here -->
+      </div>
+    </div>
+    <div class="pull_left">
+      <div class="btn-group btn-group-sm" data-toggle="buttons">
+        <button type="button" class="btn btn-default" id="moveleft"><span class="glyphicon glyphicon-arrow-left"></span></button>
+        <button type="button" class="btn btn-default" id="moveright"><span class="glyphicon glyphicon-arrow-right"></span></button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- body -->
+  <hr>
+
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+
+  <div class="termcontrols">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-5">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" class="active"><a href="#Basic" aria-controls="Basic" role="tab" data-toggle="tab">Basic</a></li>
+            <li role="presentation"><a href="#Exit" aria-controls="Exit" role="tab" data-toggle="tab">Exit</a></li>
+            <li role="presentation"><a href="#Git" aria-controls="Git" role="tab" data-toggle="tab">Git</a></li>
+            <li role="presentation"><a href="#Chroot" aria-controls="Chroot" role="tab" data-toggle="tab">Chroot</a></li>
+            <!--             <li role="presentation"><a href="#More" aria-controls="More" role="tab" data-toggle="tab">More...</a></li> -->
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+           <div role="tabpanel" class="tab-pane active" id="Basic">
+            <ul class="list-group">
+              <li class="list-group-item">Username:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="username" id="username_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="username" id="username_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Hostname:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="hostname" id="hostname_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="hostname" id="hostname_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Domain name:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="Domainname" id="Domain_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Domainname" id="Domain_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Path to directory:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="Path to directory" id="path_absolute" autocomplete="off" checked> Abs
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Path-to-directory" id="path_relative" autocomplete="off"> Rel
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Path-to-directory" id="path_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Date:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="Date" id="date_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Date" id="date_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Time:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="Time" id="12h" autocomplete="off" checked> 12h
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Time" id="24h" autocomplete="off"> 24h
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Time" id="24h_s" autocomplete="off"> 24h w/ sec
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Time" id="time_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">New line:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="Newline" id="NL_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Newline" id="NL_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">History:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="History" id="History_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="History" id="History_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="Exit">
+            <ul class="list-group">
+              <li class="list-group-item">Enable Exit:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="Enable Exit" id="exit_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="Enable Exit" id="exit_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Success color
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Black</a></li>
+                    <li><a href="#">Red</a></li>
+                    <li><a href="#">Green</a></li>
+                    <li><a href="#">Yellow</a></li>
+                    <li><a href="#">Blue</a></li>
+                    <li><a href="#">Purple</a></li>
+                    <li><a href="#">Cyan</a></li>
+                    <li><a href="#">White</a></li>
+                    <li><a href="#">Gray</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Error color
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Black</a></li>
+                      <li><a href="#">Red</a></li>
+                      <li><a href="#">Green</a></li>
+                      <li><a href="#">Yellow</a></li>
+                      <li><a href="#">Blue</a></li>
+                      <li><a href="#">Purple</a></li>
+                      <li><a href="#">Cyan</a></li>
+                      <li><a href="#">White</a></li>
+                      <li><a href="#">Gray</a></li>
+                    </ul>
+                  </div>
+                </ul>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="exit_symbol">Exit Symbol</label>
+                    <input type="text" class="form-control" id="exit_symbol" placeholder=">>">
+                  </div>
+                </form>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="Git">
+                Git 3
+              </div>
+              <div role="tabpanel" class="tab-pane" id="Chroot">
+                Chroot 4
+              </div>
             </div>
-          </li>
-
-          <li class="collection-item">
-            Hostname <div class="switch">
-              <label>
-                Disabled
-                <input type="checkbox" /><span class="lever"></span>
-                Enabled
-              </label>
-            </div>
-          </li>
-
-          <li class="collection-item">
-            CWD <form action="#">
-              <p>
-                <input class="with-gap" name="group1" type="radio" id="nocwd" />
-                <label for="nocwd">None</label>
-              </p>
-              <p>
-                <input class="with-gap" name="group1" type="radio" id="relcwd" />
-                <label for="relcwd">Rel.</label>
-              </p>
-              <p>
-                <input class="with-gap" name="group1" type="radio" id="abscwd"  />
-                <label for="abscwd">Abs.</label>
-              </p>
-            </form>
-            <!-- <form action="#">
-              <p>
-                <input class="with-gap" name="cwd" type="radio" id="nocwd" />
-                <label for="test1">None</label>
-              </p>
-              <p>
-                <input class="with-gap" name="cwd" type="radio" id="relcwd" />
-                <label for="test2">Rel.</label>
-              </p>
-              <p>
-                <input class="with-gap" name="cwd" type="radio" id="abscwd"  />
-                <label for="test3">Abs.</label>
-              </p>
-            </form> -->
-          </li>
-        </ul>
-      </div>
-      <div id="gittab" class="col s6">
-        Test 2
-      </div>
-      <div id="chroottab" class="col s6">
-        Test 3
-      </div>
-      <div id="moretab" class="col s6">
-        Test 4
+          </div>
+          <div class="col-xs-3">
+            colors
+          </div>
+          <div class="col-xs-4">
+            menus
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col s3">
-      <ul class="collection">
-        <li class="collection-item">Color 1</li>
-        <li class="collection-item">Color 2</li>
-        <li class="collection-item">Color 3</li>
-        <li class="collection-item">Color 4</li>
-      </ul>    
-    </div>
-    <div class="col s3">
-      <ul class="collection">
-        <a class='dropdown-button btn' href='#' data-activates='presetdropdown' data-beloworigin="true">Presets</a>
-        <!-- Dropdown Structure -->
-        <ul id='presetdropdown' class='dropdown-content'>
-          <li><a href="#!">Git</a></li>
-          <li><a href="#!">Penis</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">Default</a></li>
-        </ul>
-      </ul>
-    </div>
-<!--     <div id="test1" class="col s12">Test 1</div>
-    <div id="test2" class="col s12">Test 2</div>
-    <div id="test3" class="col s12">Test 3</div>
-    <div id="test4" class="col s12">Test 4</div> -->
-  </div> 
-
-</body>
-</html>
+  </body>
+  </html>
 
