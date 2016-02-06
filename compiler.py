@@ -5,18 +5,18 @@ shell_maps =\
             "username" : r"\u",
             "hostname" : r"\h",
             "fqdn" : r"\H",
-            "path" : r"\w ",
-            "pwd" : r"\W ",
-            "date" : r"\d ",
-            "24h" : r"\A ",
-            "12h" : r"\@ ",
-            "24hs" : r"\t ",
-            "newline" : r"\n ",
-            "history" : r"\! ",
-            "@" : r"@ ",
-            ":" : r": ",
-            ">" : r"> ",
-            "~" : r"~ "
+            "path" : r"\w",
+            "pwd" : r"\W",
+            "date" : r"\d",
+            "24h" : r"\A",
+            "12h" : r"\@",
+            "24hs" : r"\t",
+            "newline" : r"\n",
+            "history" : r"\!",
+            "@" : r"@",
+            ":" : r":",
+            ">" : r">",
+            "~" : r"~"
         },
         "zsh" :
         {
@@ -131,7 +131,7 @@ def compile(p):
                     false_color = args["false_color"]
                 except KeyError:
                     raise Error("Exit element missing true/false string/color")
-                escaped = "$(shellforme_exit())"
+                escaped = "$(shellforme_exit)"
                 fun = exit_string.format(true_color, true_string,
                                          false_color, false_string)
                 return { "escaped" : escaped, "additional_function" : fun }
@@ -155,8 +155,7 @@ def compile(p):
                 if "additional_function" in e)
 
     ret =\
-      r"printf '%s\n\n%s' 'PS1={0}' '{1}' >> ~/.{2}rc".format(prompt_string,
+      "printf '%s\\n\\n%s' 'PS1=\"{0}\"' '{1}' >> ~/.{2}rc".format(prompt_string,
                                                               functions,
                                                               p["shell"])
     return { "status" : "success", "output" : ret }
-
