@@ -10,8 +10,12 @@ def index():
 @app.route('/compile', methods=['POST'])
 def compile():
     ir = request.get_json()
-    # Do the thing!
-    return json.dumps({result : 'success', output : compiled})
+    try
+        ret = compile(json.loads(p))
+    except compiler.Error as exception:
+        ret = exception.as_dict()
+
+    return json.dumps(ret)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
