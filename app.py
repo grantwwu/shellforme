@@ -4,9 +4,8 @@ import json
 app = Flask(__name__)
 
 @app.route('/')
-# TODO: Render template
-def hello_world():
-    return 'Hello World!'
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/compile', methods=['POST'])
 def compile():
@@ -15,4 +14,4 @@ def compile():
     return json.dumps({result : 'success', output : compiled})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', debug=True)
