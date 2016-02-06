@@ -2,39 +2,39 @@ shell_maps =\
     {
         "bash" :
         {
-            "username" : "\\u ",
-            "hostname" : "\\h ",
-            "fqdn" : "\\H ",
-            "path" : "\\w ",
-            "pwd" : "\\W ",
-            "date" : "\\d ",
-            "24h" : "\\A ",
-            "12h" : "\\@ ",
-            "24hs" : "\\t ",
-            "newline" : "\n ",
-            "history" : "\\! ",
-            "@" : "@ ",
-            ":" : ": ",
-            ">" : "> ",
-            "~" : "~ "
+            "username" : r"\u",
+            "hostname" : r"\h",
+            "fqdn" : r"\H",
+            "path" : r"\w ",
+            "pwd" : r"\W ",
+            "date" : r"\d ",
+            "24h" : r"\A ",
+            "12h" : r"\@ ",
+            "24hs" : r"\t ",
+            "newline" : r"\n ",
+            "history" : r"\! ",
+            "@" : r"@ ",
+            ":" : r": ",
+            ">" : r"> ",
+            "~" : r"~ "
         },
         "zsh" :
         {
-            "username" : "%n",
-            "hostname" : "%m",
-            "fqdn" : "%M",
-            "path" : "%~",
-            "pwd" : "%/",
-            "date" : "%D",
-            "24h" : "%T",
-            "12h" : "%@",
-            "24hs" : "%*",
-            "newline" : "\n",
-            "history" : "%!",
-            "@" : "@",
-            ":" : ":",
-            ">" : ">",
-            "~" : "~"
+            "username" : r"%n",
+            "hostname" : r"%m",
+            "fqdn" : r"%M",
+            "path" : r"%~",
+            "pwd" : r"%/",
+            "date" : r"%D",
+            "24h" : r"%T",
+            "12h" : r"%@",
+            "24hs" : r"%*",
+            "newline" : r"\n",
+            "history" : r"%!",
+            "@" : r"@",
+            ":" : r":",
+            ">" : r">",
+            "~" : r"~"
         }
     }
 
@@ -153,8 +153,9 @@ def compile(p):
         "".join(e["additional_function"] for e in last_ir
                 if "additional_function" in e)
 
-    ret = "echo \"PS1=\"{0}\"\\n{1}\" >> ~/.{2}rc".format(prompt_string,
-                                                             functions,
-                                                             p["shell"])
+    ret =\
+      r"printf '%s\n\n%s' 'PS1={0}' '{1}' >> ~/.{2}rc".format(prompt_string,
+                                                              functions,
+                                                              p["shell"])
     return { "status" : "success", "output" : ret }
 
