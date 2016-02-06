@@ -15,6 +15,10 @@ def favicon():
 def resize():
     return app.send_static_file('resize.css')
 
+@app.route('/main.js')
+def js():
+    return app.send_static_file('main.js')
+
 @app.route('/compile', methods=['POST'])
 def compile():
     ir = request.get_json()
