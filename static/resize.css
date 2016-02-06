@@ -61,10 +61,11 @@ html, body, .viewport {
 /* I went with a fixed height header & footer because it's a common case.
   This could easily be altered to flex proportionally with the page.
 */
-header, footer {
-  height: 100px;
+header {
+  top: 10%;
+  height: 10%;
 }
-.main {
+.termbox {
   /* previous syntax */
   -webkit-box-flex: 1;
      -moz-box-flex: 1;
@@ -75,8 +76,29 @@ header, footer {
      -moz-flex: 1;
       -ms-flex: 1;
           flex: 1;
-      height: 25%;
+      height: 20%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 250%;
+  color: #D3D3D3;
+  background-color: black;
 }
+
+.termcontrols {
+  /* previous syntax */
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-box-flex: 1;
+          box-flex: 1;
+  /* current syntax */
+  -webkit-flex: 1;
+     -moz-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+      height: 70%;
+/*      color: #D3D3D3;
+  background-color: black;*/
+}
+
 article {
   /* previous syntax */
   -webkit-box-flex: 5;
@@ -100,4 +122,37 @@ aside, nav {
      -moz-flex: 1;
       -ms-flex: 1;
           flex: 1;
+      height:10%;
 }
+/* Disables scrolling */
+html { overflow-y: auto; overflow-x: hidden;}
+
+
+/* Solve problem on a non-solid background */
+.term-elem:hover {
+  outline: 1px solid white; 
+}
+/* Solve problem where border size changes on hover */
+.term-elem { 
+  display:inline-block;
+  border: 1px solid white; 
+} 
+.term-elem:hover { 
+  display:inline-block;
+  outline: 2px solid white; 
+   *display: inline;
+   float: left;
+   width:auto;
+   vertical-align: middle
+} 
+.term-elem:active {
+    background: #336633; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#336633, #99FF33); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#336633, #99FF33); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#336633, #99FF33); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#336633, #99FF33); /* Standard syntax */
+}
+.btn {
+    border-radius: 1px;
+}
+
