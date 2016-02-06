@@ -8,7 +8,7 @@ def index():
     return app.send_static_file('index.html')
 
 @app.route('/favicon.png')
-def index():
+def favicon():
     return app.send_static_file('favicon.png')
 
 @app.route('/compile', methods=['POST'])
