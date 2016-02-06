@@ -58,11 +58,11 @@ exit_string =\
 """
 function shellforme_exit {{
     if [[ $? == 0 ]]; then
-        echo '$(tput setaf {0}){1}'
+        printf "%s" "$(tput setaf {0}){1}"
     else
-        echo '$(tput setaf {2}){3}'
+        printf "%s" "$(tput setaf {2}){3}"
     fi
-    echo '$(tput sgr0)'
+    printf "%s" "$(tput sgr0)"
 }}
 
 """
@@ -131,7 +131,7 @@ def compile(p):
                     false_color = args["false_color"]
                 except KeyError:
                     raise Error("Exit element missing true/false string/color")
-                escaped = "$(shellforme_exit)"
+                escaped = "$(shellforme_exit())"
                 fun = exit_string.format(true_color, true_string,
                                          false_color, false_string)
                 return { "escaped" : escaped, "additional_function" : fun }
