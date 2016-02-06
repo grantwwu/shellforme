@@ -34,17 +34,37 @@ def bash_script(L):
   for op in L:
     op_type = op["type"]
     if not op_type in bashCmd:
-      raise Exception("This is not a valid command yet")
+      if (op_type == "exit"):
+        t_args, f_args = op["args"]
+        
+      else:
+        raise Exception("This is not a valid command yet")
+    
 
-    cmd = bashCmd[op_type]
+    else:
+      cmd = bashCmd[op_type]
 
-    if op["color"] != "none":
-      c1, c2 = bashColors[op["color"]]
-      cmd = "\\033[{0};{1}m{2}\\e[0m ".format(c1, c2, cmd)
+      if op["color"] != "none":
+        c1, c2 = bashColors[op["color"]]
+        cmd = "\\033[{0};{1}m{2}\\e[0m ".format(c1, c2, cmd)
 
     src += cmd
 
   return src
+
+
+
+# function success
+# {
+#     if [[ $? == 0 ]]; then
+#         echo $(tput setaf 2)':)'
+#     else
+#         echo $(tput setaf 1)'D:'
+#     fi
+# }
+
+# export PS1='\u@\h: \W $(success) $(tput sgr0)>'
+
 
 
 
