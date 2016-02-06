@@ -128,8 +128,12 @@ def compile(p):
                 # TODO: Implement
             else:
                 raise Error("{0} is not a valid command yet".format(t))
+    try:
+        elements = p["elements"]
+    except KeyError:
+        raise Error("Elements not specified.")
 
-    last_ir = [mapper(e) for e in p["elements"]]
+    last_ir = [mapper(e) for e in elements]
     prompt_string = [e["escaped"] for e in last_ir]
     functions =\
         [e["additional_function"] for e in last_ir if "additional_function" in e]
