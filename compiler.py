@@ -128,10 +128,12 @@ def compile(p):
                     true_string = args["true_string"]
                     false_string = args["false_string"]
                     true_color = args["true_color"]
+                    true_color = color_map[true_color]
                     false_color = args["false_color"]
+                    false_color = color_map[false_color]
                 except KeyError:
                     raise Error("Exit element missing true/false string/color")
-                escaped = "$(shellforme_exit)"
+                escaped = r"\$(shellforme_exit)"
                 fun = exit_string.format(true_color, true_string,
                                          false_color, false_string)
                 return { "escaped" : escaped, "additional_function" : fun }
