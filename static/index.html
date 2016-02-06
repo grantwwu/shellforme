@@ -45,8 +45,8 @@
 
   <div class="termbox">
     <div class="container">
-      <div class="term-elem">
-      <!-- Terminal preview goes here -->
+      <div class="term-elem" id="terminal-preview">
+        <!-- Terminal preview goes here -->
       </div>
     </div>
     <div class="pull_left">
@@ -106,10 +106,10 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="Domainname" id="Domain_enabled" autocomplete="off" checked> Enabled
+                      <input type="radio" name="Domainname" id="Domain_enabled" autocomplete="off"> Enabled
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="Domainname" id="Domain_disabled" autocomplete="off"> Disabled
+                      <input type="radio" name="Domainname" id="Domain_disabled" autocomplete="off" checked> Disabled
                     </label>
                   </div>
                 </div>
@@ -118,10 +118,10 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="Path to directory" id="path_absolute" autocomplete="off" checked> Abs
+                      <input type="radio" name="Path to directory" id="path_absolute" autocomplete="off"> Abs
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="Path-to-directory" id="path_relative" autocomplete="off"> Rel
+                      <input type="radio" name="Path-to-directory" id="path_relative" autocomplete="off" checked> Rel
                     </label>
                     <label class="btn btn-primary">
                       <input type="radio" name="Path-to-directory" id="path_disabled" autocomplete="off"> Disabled
@@ -133,10 +133,10 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="Date" id="date_enabled" autocomplete="off" checked> Enabled
+                      <input type="radio" name="Date" id="date_enabled" autocomplete="off"> Enabled
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="Date" id="date_disabled" autocomplete="off"> Disabled
+                      <input type="radio" name="Date" id="date_disabled" autocomplete="off" checked> Disabled
                     </label>
                   </div>
                 </div>
@@ -145,7 +145,7 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="Time" id="12h" autocomplete="off" checked> 12h
+                      <input type="radio" name="Time" id="12h" autocomplete="off"> 12h
                     </label>
                     <label class="btn btn-primary">
                       <input type="radio" name="Time" id="24h" autocomplete="off"> 24h
@@ -154,7 +154,7 @@
                       <input type="radio" name="Time" id="24h_s" autocomplete="off"> 24h w/ sec
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="Time" id="time_disabled" autocomplete="off"> Disabled
+                      <input type="radio" name="Time" id="time_disabled" autocomplete="off" checked> Disabled
                     </label>
                   </div>
                 </div>
@@ -163,10 +163,10 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="Newline" id="NL_enabled" autocomplete="off" checked> Enabled
+                      <input type="radio" name="Newline" id="NL_enabled" autocomplete="off"> Enabled
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="Newline" id="NL_disabled" autocomplete="off"> Disabled
+                      <input type="radio" name="Newline" id="NL_disabled" autocomplete="off" checked> Disabled
                     </label>
                   </div>
                 </div>
@@ -175,10 +175,10 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="History" id="History_enabled" autocomplete="off" checked> Enabled
+                      <input type="radio" name="History" id="History_enabled" autocomplete="off"> Enabled
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="History" id="History_disabled" autocomplete="off"> Disabled
+                      <input type="radio" name="History" id="History_disabled" autocomplete="off" checked> Disabled
                     </label>
                   </div>
                 </div>
@@ -191,15 +191,15 @@
                 <div class="pull-right">
                   <div class="btn-group btn-group-xs" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                      <input type="radio" name="Enable Exit" id="exit_enabled" autocomplete="off" checked> Enabled
+                      <input type="radio" name="Enable_Exit" id="exit_enabled" autocomplete="off"> Enabled
                     </label>
                     <label class="btn btn-primary">
-                      <input type="radio" name="Enable Exit" id="exit_disabled" autocomplete="off"> Disabled
+                      <input type="radio" name="Enable_Exit" id="exit_disabled" autocomplete="off" checked> Disabled
                     </label>
                   </div>
                 </div>
               </li>
-              <div class="dropdown">
+              <!-- <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Success color
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu">
@@ -213,8 +213,8 @@
                     <li><a href="#">White</a></li>
                     <li><a href="#">Gray</a></li>
                   </ul>
-                </div>
-                <div class="dropdown">
+                </div> -->
+                <!-- <div class="dropdown">
                   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Error color
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
@@ -228,7 +228,7 @@
                       <li><a href="#">White</a></li>
                       <li><a href="#">Gray</a></li>
                     </ul>
-                  </div>
+                  </div> -->
                 </ul>
                 <form class="form-inline">
                   <div class="form-group">
@@ -238,15 +238,78 @@
                 </form>
               </div>
               <div role="tabpanel" class="tab-pane" id="Git">
-                Git 3
+                <li class="list-group-item">Enable Git:
+                  <div class="pull-right">
+                    <div class="btn-group btn-group-xs" data-toggle="buttons">
+                      <label class="btn btn-primary active">
+                        <input type="radio" name="Enable_Git" id="git_enabled" autocomplete="off" checked> Enabled
+                      </label>
+                      <label class="btn btn-primary">
+                        <input type="radio" name="Enable_Git" id="git_disabled" autocomplete="off"> Disabled
+                      </label>
+                    </div>
+                  </div>
+                </li>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="Clean symbol">Clean Symbol</label>
+                    <input type="text" class="form-control" id="clean_symbol" placeholder="">
+                  </div>
+                </form>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="Dirty symbol">Dirty Symbol</label>
+                    <input type="text" class="form-control" id="dirty_symbol" placeholder="X">
+                  </div>
+                </form>
               </div>
               <div role="tabpanel" class="tab-pane" id="Chroot">
-                Chroot 4
+                <li class="list-group-item">Enable Chroot:
+                  <div class="pull-right">
+                    <div class="btn-group btn-group-xs" data-toggle="buttons">
+                      <label class="btn btn-primary active">
+                        <input type="radio" name="Enable_Chroot" id="chroot_enabled" autocomplete="off" checked> Enabled
+                      </label>
+                      <label class="btn btn-primary">
+                        <input type="radio" name="Chroot_Git" id="chroot_disabled" autocomplete="off"> Disabled
+                      </label>
+                    </div>
+                  </div>
+                </li>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="Chroot file">Chroot File</label>
+                    <input type="text" class="form-control" id="chroot_file" placeholder="">
+                  </div>
+                </form>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="Dirty symbol">In Chroot Symbol</label>
+                    <input type="text" class="form-control" id="in_chroot" placeholder="">
+                  </div>
+                </form>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="Dirty symbol">Not in Chroot Symbol</label>
+                    <input type="text" class="form-control" id="not_in_chroot" placeholder="">
+                  </div>
+                </form>
               </div>
             </div>
           </div>
           <div class="col-xs-3">
-            colors
+            Colors
+            <div class="list-group">
+            <button type="button" class="list-group-item">Black</button>
+              <button type="button" class="list-group-item">Red</button>
+              <button type="button" class="list-group-item">Green</button>
+              <button type="button" class="list-group-item">Yellow</button>
+              <button type="button" class="list-group-item">Blue</button>
+              <button type="button" class="list-group-item">Purple</button>
+              <button type="button" class="list-group-item">Cyan</button>
+              <button type="button" class="list-group-item">White</button>
+              <button type="button" class="list-group-item">Gray</button>
+            </div>
           </div>
           <div class="col-xs-4">
             menus
