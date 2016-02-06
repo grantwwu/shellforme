@@ -134,9 +134,10 @@ def compile(p):
         raise Error("Elements not specified.")
 
     last_ir = [mapper(e) for e in elements]
-    prompt_string = [e["escaped"] for e in last_ir]
+    prompt_string = "".join(e["escaped"] for e in last_ir)
     functions =\
-        [e["additional_function"] for e in last_ir if "additional_function" in e]
+        "".join(e["additional_function"] for e in last_ir
+                if "additional_function" in e)
 
     ret = "echo \"export PS1={0}\\n{1}\" >> ~/.{2}rc".format(prompt_string,
                                                              functions,
