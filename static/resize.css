@@ -62,9 +62,9 @@ html, body, .viewport {
   This could easily be altered to flex proportionally with the page.
 */
 header, footer {
-  height: 100px;
+  height: 15%;
 }
-.main {
+.termbox {
   /* previous syntax */
   -webkit-box-flex: 1;
      -moz-box-flex: 1;
@@ -76,7 +76,26 @@ header, footer {
       -ms-flex: 1;
           flex: 1;
       height: 25%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 250%;
+  color: #D3D3D3;
+  background-color: black;
 }
+
+.termcontrols {
+  /* previous syntax */
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-box-flex: 1;
+          box-flex: 1;
+  /* current syntax */
+  -webkit-flex: 1;
+     -moz-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+      height: 75%;
+}
+
 article {
   /* previous syntax */
   -webkit-box-flex: 5;
@@ -101,3 +120,4 @@ aside, nav {
       -ms-flex: 1;
           flex: 1;
 }
+html { overflow-y: hidden; overflow-x: hidden; }

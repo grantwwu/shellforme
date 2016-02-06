@@ -31,47 +31,120 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#"><span color="green">ShellFor.Me</span></a>
-        </div>
-      </div>
-    </nav>
+  <link rel="stylesheet" href="resize.css" />
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-          Terminal goes here.
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><span color="green">ShellFor.Me</span></a>
       </div>
     </div>
+  </nav>
 
+  <hr><!-- Terminal Preview -->
+
+  <div class="termbox">
     <div class="container">
-      <!-- Example row of columns -->
+      <span class="black-text">
+        <center>
+          Terminal Preview (To be implemented)
+        </center>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- body --><hr>
+
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+
+  <div class="termcontrols">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-xs-5">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" class="active"><a href="#Basic" aria-controls="Basic" role="tab" data-toggle="tab">Basic</a></li>
+            <li role="presentation"><a href="#Git" aria-controls="Git" role="tab" data-toggle="tab">Git</a></li>
+            <li role="presentation"><a href="#Chroot" aria-controls="Chroot" role="tab" data-toggle="tab">Chroot</a></li>
+            <li role="presentation"><a href="#More" aria-controls="More" role="tab" data-toggle="tab">More...</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+           <div role="tabpanel" class="tab-pane active" id="Basic">
+            <ul class="list-group">
+              <li class="list-group-item">Username:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="username" id="username_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="username" id="username_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Username:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="username" id="username_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="username" id="username_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Username:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="username" id="username_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="username" id="username_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Username:
+                <div class="pull-right">
+                  <div class="btn-group btn-group-xs" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="username" id="username_enabled" autocomplete="off" checked> Enabled
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="username" id="username_disabled" autocomplete="off"> Disabled
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="Git">
+            Git 2
+          </div>
+          <div role="tabpanel" class="tab-pane" id="Chroot">
+            Chroot 3
+          </div>
+          <div role="tabpanel" class="tab-pane" id="More">
+            More 4
+          </div>
         </div>
       </div>
+      <div class="col-xs-3">
+        colors
+      </div>
+      <div class="col-xs-4">
+        menus
+      </div>
+    </div>
+  </div>
+</div>
 
-      <hr>
 
-      <footer>
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container --><!-- 
+  <!-- 
   <section class="main hbox space-between">
     <div class="ui container">
       <span class="black-text">
