@@ -138,7 +138,7 @@ def compile(p):
     functions =\
         [e["additional_function"] for e in last_ir if "additional_function" in e]
 
-    ret = "echo \"export PS1={0}\\n{1}\" >> ~/.{1}rc".format(prompt_string,
+    ret = "echo \"export PS1={0}\\n{1}\" >> ~/.{2}rc".format(prompt_string,
                                                              functions,
                                                              p["shell"])
     return { "status" : "success", "output" : ret }
