@@ -25,52 +25,50 @@ def bash_script(L):
              "@":"@ ", ":":": ", ">":"> "}
 
   #colors for exit codes
-  exitColors = {"red":"1", "green":"2", "yellow":"3",
-                "blue":"4", "purple":"5", "cyan":"6",
-                "white":"7"}
+  bashColors = {"black":"0", "red":"1", "green":"2",
+                "yellow":"3", "blue":"4", "purple":"5",
+                "cyan":"6", "white":"7", "grey":"8"}
 
   src = ""
   for op in L:
     op_type = op["type"]
     if not op_type in bashCmd:
+      #exit condition
       if (op_type == "exit"):
         t_args, f_args = op["args"]
-        
+        t_color, f_color = bashColors[t_args["color"]], bashColors[f_args["color"]]
+        if not (t_args["type"] in bashCmd and f_args["type"] in bashCmd):
+          raise Exception("Use a valid command for both args")
+        else:
+          t_type, f_type = bashCmd[t_args["type"]], bashCmd[f_args["type"]]
+        fun = """
+function exit
+{{
+if [[ $? == 0 ]]; then
+    echo $(tput setaf {0})'{1}'
+else
+    echo $(tput setaf {2})'{3}'
+fi
+}}\n\n""".format(t_color, t_type, f_color, f_type)
+
+        cmd = "$(exit) "
+        src = fun + src
+
       else:
-        raise Exception("This is not a valid command yet")
+        raise Exception("{0} is not a valid command yet".format(op_type))
     
 
     else:
       cmd = bashCmd[op_type]
 
       if op["color"] != "none":
-        c = exitColors[op["color"]]
-        print(c)
-        # cmd = "\\033[{0};{1}m{2}\\e[0m ".format(c1, c2, cmd)
+        c = bashColors[op["color"]]
         cmd = "$(tput setaf {0}) {1} $(tput sgr0)".format(c, cmd)
 
     src += cmd
 
+  #need to wrap export PS1='......' around the last line
   return src
-
-#export PS1='\u \033[0;35m: \033[00m \W \033[0;35m: \e[00m '
-#export PS1="\u $(tput setaf 2) : $(tput sgr0) \W $(tput setaf 2) : $(tput sgr0)"
-
-
-
-# function success
-# {
-#     if [[ $? == 0 ]]; then
-#         echo $(tput setaf 2)':)'
-#     else
-#         echo $(tput setaf 1)'D:'
-#     fi
-# }
-
-# export PS1='\u@\h: \W $(success) $(tput sgr0)>'
-
-
-
 
 def zsh_script(L):
   return
