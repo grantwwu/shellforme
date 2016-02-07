@@ -156,3 +156,44 @@ html { overflow-y: auto; overflow-x: hidden;}
     border-radius: 1px;
 }
 
+/*round buttons*/
+
+.btn-lg.round {
+    border-radius: 10px;
+}
+.btn-black {
+    background: #000000;
+    color: #ffffff;
+}
+.btn-red {
+    background: #ff0000;
+    color: #ffffff;
+}
+.btn-green {
+    background: #00ff00;
+    color: #ffffff;
+}
+.btn-yellow {
+    background: #ffff00;
+    color: #000000;
+}
+.btn-blue {
+    background: #0099cc;
+    color: #ffffff;
+}
+.btn-purple {
+    background: #551a8b;
+    color: #ffffff;
+}
+.btn-cyan {
+    background: #00ffff;
+    color: #ffffff;
+}
+.btn-white {
+    background: #ffffff;
+    color: #000000;
+}
+.btn-gray {
+    background: #d3d3d3;
+    color: #000000;
+}
